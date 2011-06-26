@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lblUserName">Username:</string>
+    <string name="lblPassword">Password:</string>
+    <string name="app_name">Enigma</string>
+    <string name="server_error">Server error</string>
+    <string name="invalid_login">Invalid user name or password.  Please try again.</string>
+        <string-array name="countries_array">
+        <item>Bahrain</item>
+        <item>Bangladesh</item>
+        <item>Barbados</item>
+        <item>Belarus</item>
+        <item>Belgium</item>
+        <item>Belize</item>
+        <item>Benin</item>
+    </string-array>
+</resources>

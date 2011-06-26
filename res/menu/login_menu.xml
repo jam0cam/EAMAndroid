@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:title="Exit" android:id="@+id/mnuExit" android:icon="@drawable/logout48"></item>
+	<!-- TODO:  Change this to the real Change URL icon -->
+	<item android:title="Change URL" android:id="@+id/mnuChangeURL" android:icon="@drawable/logout48"></item>
+</menu>

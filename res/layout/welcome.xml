@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#CBCBCB"
+    >
+		
+	<TextView android:text="Before this app can be used, it must be configured with the URL of the Enigma Server.  Ask your Enigma System Administrator for assistance." 
+		android:id="@+id/lblBodyContent" 
+		android:layout_width="423px" 
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5px"
+		android:layout_gravity="center_horizontal"
+		android:textColor="#000000"
+		/>		
+
+	<EditText 
+		android:text="" 
+		android:id="@+id/txtUrl" 
+		android:layout_width="423px" 
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"
+    	android:layout_marginTop="20px"
+    	android:hint="Enigma URL"		
+		android:singleLine="true"
+		>
+	</EditText>
+
+	<Button 
+		android:id="@+id/btnSubmit" 
+		android:layout_width="440px" 
+		android:layout_height="85px"
+    	android:layout_gravity="center_horizontal"	    
+    	android:layout_marginTop="20px"
+    	android:background="@drawable/login_button"
+		>
+	</Button>
+	
+	<TextView android:text="Enter a valid base Enigma URL.  Example: name.server.com" 
+		android:id="@+id/lblErrorMsg" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5px"
+		android:gravity="center_horizontal"
+		android:textColor="#000000"
+		android:visibility="invisible"
+		/>	
+	
+</LinearLayout>
+

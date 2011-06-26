@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#CBCBCB"
+    >
+    <ImageView android:id="@+id/ImageView01" 
+    	android:layout_width="fill_parent" 
+    	android:layout_height="wrap_content"
+    	android:src="@drawable/enigma_logo"
+    	android:paddingLeft="14px"
+    	android:paddingRight="14px"
+    	>
+    
+    </ImageView>
+
+	<EditText 
+		android:text="" 
+		android:id="@+id/txtUserName" 
+		android:layout_width="423px" 
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"		
+    	android:hint="Username"
+		android:singleLine="true">
+	</EditText>
+
+	<EditText 
+		android:text="" 
+		android:id="@+id/txtPassword" 
+		android:layout_width="423px" 
+		android:layout_height="wrap_content"
+    	android:layout_marginTop="14px"
+    	android:layout_gravity="center_horizontal"
+    	android:hint="Password"		
+		android:singleLine="true"
+		android:password="true">
+	</EditText>
+
+
+	<Button 
+		android:id="@+id/btnLogin" 
+		android:layout_width="440px" 
+		android:layout_height="85px"
+    	android:layout_gravity="center_horizontal"		
+    	android:layout_marginTop="20px"
+    	android:background="@drawable/login_button"
+		>
+	</Button>
+		
+	<TextView android:text="lblErrorMsg" 
+		android:id="@+id/lblErrorMsg" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5px"
+		android:gravity="center_horizontal"
+		android:textColor="#000000"
+		android:visibility="invisible"		
+		/>
+
+
+	<EditText 
+		android:text="" 
+		android:id="@+id/txtLat" 
+		android:layout_width="423px" 
+		android:layout_height="wrap_content"
+    	android:layout_marginTop="20px"
+    	android:layout_gravity="center_horizontal"
+    	android:hint="Latitude"		
+		android:singleLine="true"
+		>
+	</EditText>
+	
+	<EditText 
+		android:text="" 
+		android:id="@+id/txtLong" 
+		android:layout_width="423px"		
+		android:layout_height="wrap_content"
+    	android:layout_marginTop="14px"
+    	android:layout_gravity="center_horizontal"
+    	android:hint="Longitude"		
+		android:singleLine="true"
+		>
+	</EditText>	
+	
+</LinearLayout>
+

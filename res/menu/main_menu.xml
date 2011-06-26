@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:title="Home" android:id="@+id/mnuHome" android:icon="@drawable/home48"></item>
+	<item android:title="Options" android:id="@+id/mnuOptions" android:icon="@drawable/options48"></item>
+	<item android:title="Exit" android:id="@+id/mnuExit" android:icon="@drawable/logout48"></item>
+</menu>

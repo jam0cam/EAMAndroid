@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.eam.android"
+      android:versionCode="1"
+      android:versionName="1.0">
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission  android:name="android.permission.ACCESS_GPS" /> 
+    <application android:label="@string/app_name" android:icon="@drawable/enigma_app_icon_72px" android:debuggable="true">
+        <activity 
+        	android:label="@string/app_name"
+        	android:name=".EAMAndroid"        
+        	android:screenOrientation="portrait"
+        	android:configChanges="keyboardHidden|orientation" 
+        	>                    	
+        </activity>
+
+    	<activity 
+			android:label="@string/app_name"
+			android:name=".EamHome"
+			android:configChanges="keyboardHidden|orientation" 
+			>
+    	</activity>
+    	<activity 
+			android:label="@string/app_name"
+			android:name=".EamWelcome"			
+			android:screenOrientation="portrait"
+			android:configChanges="keyboardHidden|orientation" 
+			>			
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter> 				
+    	</activity>    	
+</application>
+    <uses-sdk android:minSdkVersion="8" />
+
+</manifest> 
