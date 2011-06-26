@@ -116,12 +116,8 @@ public class EamHome extends Activity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)  {
     	//this intercepts the back button when clicked.
-    	
-    	//2011.05.28 - decided to just not do anything when the back button is clicked because the user
-    	//really should navigate within the web control
-        //if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-    	if (keyCode == KeyEvent.KEYCODE_BACK) {
-        	//((WebView)findViewById(R.id.webview1)).goBack();
+    	if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+        	((WebView)findViewById(R.id.webview1)).goBack();
             return true;
         }
 

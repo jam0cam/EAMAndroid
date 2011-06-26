@@ -8,6 +8,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import android.app.ProgressDialog;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import com.eam.android.presenter.WelcomePresenter;
 import com.eam.android.utils.Config;
 import com.eam.android.utils.NavigationHandler;
@@ -30,10 +34,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class EamWelcome extends Activity implements OnClickListener, OnKeyListener, IWelcomeView {
+public class EamWelcome extends Activity implements OnClickListener, OnKeyListener, IWelcomeView, Runnable{
 
 	int requestCode;
 	private WelcomePresenter presenter = new WelcomePresenter(this);
+    ProgressDialog dialog;
+    boolean urlSuccess;
 	
     /** Called when the activity is first created. */
     @Override
@@ -106,11 +112,6 @@ public class EamWelcome extends Activity implements OnClickListener, OnKeyListen
     	}    	
     }    
 
-	@Override
-	public void onClick(View view) {
-		submit();
-	}	
-	
 	public void showErrorMsg() {
         TextView txt = (TextView)findViewById(R.id.lblErrorMsg);
         txt.setVisibility(TextView.VISIBLE);
@@ -159,20 +160,43 @@ public class EamWelcome extends Activity implements OnClickListener, OnKeyListen
 		return url;
 	}
 
-	@Override
-	public void submit() {
+    /**
+     * The button is clicked.  We'll launch a separate thread here to do the URL verification.
+     * @param view
+     */
+    @Override
+    public void onClick(View view) {
+        dialog = ProgressDialog.show(this, "", "Validating. Please wait...", true);
+        Thread thread = new Thread(this);
+        thread.start();
+    }
 
-		String url = getUrl();
-		
+    @Override
+    public void run() {
+        urlSuccess = presenter.submit();
+        handler.sendEmptyMessage(0);
+    }
+
+    private Handler handler = new Handler() {
+                @Override
+                public void handleMessage(Message msg) {
+                        dialog.dismiss();
+                    doAfterSubmit();
+
+                }
+        };
+
+	public void doAfterSubmit() {
+        String url = getUrl();
 		//validates that the URL is legit
-		if (presenter.submit()) {
+		if (urlSuccess) {
 			saveUrl(url);		
 			showLoginPage();			
 		} else {
 			showErrorMsg();
-		}		
+		}
 	}
-	
+
     /**
      * This creates the items that pops up when the menu button is clicked on the device.
      */
@@ -196,6 +220,11 @@ public class EamWelcome extends Activity implements OnClickListener, OnKeyListen
         default:
             return false;
         }
-    }	    
-	
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        System.exit(1);
+    }
 }

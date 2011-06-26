@@ -3,6 +3,7 @@ package com.eam.android.service;
 import java.io.IOException;
 
 import android.net.wifi.WifiConfiguration;
+import com.eam.android.utils.Config;
 import org.apache.commons.ssl.HttpSecureProtocol;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
@@ -21,6 +22,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.SingleClientConnManager;
 import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.util.EntityUtils;
@@ -83,6 +85,8 @@ HttpParams params = new BasicHttpParams();
 params.setParameter(ConnManagerPNames.MAX_TOTAL_CONNECTIONS, 30);
 params.setParameter(ConnManagerPNames.MAX_CONNECTIONS_PER_ROUTE, new ConnPerRouteBean(30));
 params.setParameter(HttpProtocolParams.USE_EXPECT_CONTINUE, false);
+        HttpConnectionParams.setConnectionTimeout(params, Config.CONNECTION_TIMEOUT);
+        HttpConnectionParams.setSoTimeout(params, Config.SOCKET_TIMEOUT);
 HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
 
 ClientConnectionManager cm = new SingleClientConnManager(params, schemeRegistry);

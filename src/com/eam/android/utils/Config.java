@@ -1,5 +1,7 @@
 package com.eam.android.utils;
 
+import java.security.PublicKey;
+
 public class Config {
 
 	//public static final String TARGET_DOMAIN = "10.0.2.2";	//localhost
@@ -17,6 +19,8 @@ public class Config {
 	public static final int KILL_APP = 123;
 	public static final int CHANGE_URL = 234;
 	public static final int RETURN_TO_LOGIN = 345;
+    public static final int CONNECTION_TIMEOUT = 5000;
+    public static final int SOCKET_TIMEOUT = 8000;
 	
 	
 	public static String getHomePageURL() {

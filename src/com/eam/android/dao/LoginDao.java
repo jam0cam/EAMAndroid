@@ -46,14 +46,9 @@ public class LoginDao {
 		RestService service = new RestService(Config.TARGET_DOMAIN, xmlData, Config.SERVICE_PORT);		
 		
 		String firstPostUrl = Config.getRegularLoginServicePostUrl();
-		String secondPostUrl = Config.getSecureLoginURLforConnectionTest();
-		
-		if (!tryUrl(service, firstPostUrl)) {	//if the first URL does not work, try the second one
-			return tryUrl(service, secondPostUrl);
-		}
-		
-		
-		return true;
+//		String secondPostUrl = Config.getSecureLoginURLforConnectionTest();
+
+        return tryUrl(service, firstPostUrl);
 	}
 	
 	private boolean tryUrl(RestService service, String postUrl) {

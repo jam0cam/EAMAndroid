@@ -4,5 +4,4 @@ public interface IWelcomeView {
 
 	public void setUrl(String url);
 	public String getUrl();
-	public void submit();	
 }
